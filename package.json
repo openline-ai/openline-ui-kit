@@ -1,8 +1,8 @@
 {
-  "name": "ui-kit",
-  "version": "0.1.0",
+  "name": "@openline-ai/ui-kit",
+  "version": "1.0.0",
   "private": false,
-  "repository": "https://github.com/openline-ai/openline-ui-kit",
+  "repository": "openline-ai/openline-ui-kit",
   "scripts": {
     "dev": "start-storybook -p 6006 -s ./public",
     "build": "build-storybook -s public"
@@ -40,15 +40,54 @@
     "eslint-plugin-storybook": "^0.6.7",
     "typescript": "4.9.3"
   },
-  "release": {
-    "branches": ["otter"]
-  },
   "plugins": [
-    "@semantic-release/commit-analyzer",
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "releaseRules": [
+          {
+            "type": "fix",
+            "release": "patch"
+          },
+          {
+            "type": "feat",
+            "release": "minor"
+          },
+          {
+            "type": "perf",
+            "release": "minor"
+          }
+        ],
+        "parserOpts": {
+          "noteKeywords": [
+            "BREAKING CHANGE",
+            "BREAKING CHANGES"
+          ]
+        }
+      }
+    ],
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     "@semantic-release/github",
     "@semantic-release/npm",
     "@semantic-release/git"
+  ],
+  "release": {
+    "branches": [
+      {
+        "name": "otter",
+        "prerelease": false
+      },
+      {
+        "name": "rc",
+        "prerelease": true
+      }
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "storybook-static"
   ]
 }
