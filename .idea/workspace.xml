@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="506c25ff-c2a0-4a68-a654-3eaf972a184c" name="Changes" comment="" />
+    <list default="true" id="506c25ff-c2a0-4a68-a654-3eaf972a184c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/stories/pages/Home.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +44,7 @@
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/Users/efirut/work/openline/openline-ui-kit/src/stories/grid",
+    "last_opened_file_path": "/Users/efirut/work/openline/openline-ui-kit/stories/pages",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -50,6 +55,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/stories/pages" />
       <recent name="$PROJECT_DIR$/src/stories/grid" />
     </key>
   </component>
@@ -62,7 +68,7 @@
       <option name="presentableId" value="Default" />
       <updated>1666419613801</updated>
       <workItem from="1666419615024" duration="2506000" />
-      <workItem from="1670224888421" duration="1244000" />
+      <workItem from="1670224888421" duration="1715000" />
     </task>
     <task id="LOCAL-00001" summary="Storybook boilerplate">
       <created>1666419772282</created>
@@ -106,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670226015150</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Barebone nextjs app">
+      <created>1670226212652</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670226212652</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,7 +130,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Storybook boilerplate" />
     <MESSAGE value="clear repo" />
-    <option name="LAST_COMMIT_MESSAGE" value="clear repo" />
+    <MESSAGE value="Barebone nextjs app" />
+    <option name="LAST_COMMIT_MESSAGE" value="Barebone nextjs app" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
