@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="506c25ff-c2a0-4a68-a654-3eaf972a184c" name="Changes" comment="" />
+    <list default="true" id="506c25ff-c2a0-4a68-a654-3eaf972a184c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,7 +121,7 @@
       <option name="presentableId" value="Default" />
       <updated>1666419613801</updated>
       <workItem from="1666419615024" duration="2506000" />
-      <workItem from="1670224888421" duration="5027000" />
+      <workItem from="1670224888421" duration="5675000" />
     </task>
     <task id="LOCAL-00001" summary="Storybook boilerplate">
       <created>1666419772282</created>
@@ -211,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670229948734</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix build">
+      <created>1670230307649</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1670230307649</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +238,8 @@
     <MESSAGE value="Add packages" />
     <MESSAGE value="Fix build" />
     <MESSAGE value="remove next" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove next" />
+    <MESSAGE value="fix build" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix build" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
