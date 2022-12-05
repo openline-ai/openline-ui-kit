@@ -1,7 +1,8 @@
 {
-  "name": "openline-ui-kit",
+  "name": "openline-ai@ui-kit",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "repository": "https://github.com/openline-ai/openline-ui-kit",
   "scripts": {
     "dev": "start-storybook -p 6006 -s ./public",
     "build": "build-storybook -s public"

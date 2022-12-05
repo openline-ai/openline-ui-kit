@@ -48,7 +48,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/efirut/work/openline/openline-ui-kit/node_modules/typescript/lib"
+    "ts.external.directory.path": "/Applications/IntelliJ IDEA.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -121,7 +121,7 @@
       <option name="presentableId" value="Default" />
       <updated>1666419613801</updated>
       <workItem from="1666419615024" duration="2506000" />
-      <workItem from="1670224888421" duration="5675000" />
+      <workItem from="1670224888421" duration="6078000" />
     </task>
     <task id="LOCAL-00001" summary="Storybook boilerplate">
       <created>1666419772282</created>
@@ -221,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670230307649</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add semnatic release">
+      <created>1670231102255</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1670231102255</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,7 +246,8 @@
     <MESSAGE value="Fix build" />
     <MESSAGE value="remove next" />
     <MESSAGE value="fix build" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix build" />
+    <MESSAGE value="Add semnatic release" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add semnatic release" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
