@@ -1,6 +1,8 @@
 name: Semantic release
 
-on: push
+on:
+  push
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -18,5 +20,5 @@ jobs:
       - name: Semantic release
         env:
           GITHUB_TOKEN: ${{ secrets.REPOSITORY_READ_WRITE_TOKEN }}
-          NPM_TOKEN: ${{ secrets.REPOSITORY_READ_WRITE_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
         run: npx semantic-release
