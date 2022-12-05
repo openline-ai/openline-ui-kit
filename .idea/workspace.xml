@@ -5,10 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="506c25ff-c2a0-4a68-a654-3eaf972a184c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/stories/pages/Home.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/hello.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/Button.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/button/Button.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/button/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/Header.stories.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/Header.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/Introduction.stories.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Introduction.stories.mdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/Page.stories.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/Page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/code-brackets.svg" beforeDir="false" afterPath="$PROJECT_DIR$/components/assets/code-brackets.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/colors.svg" beforeDir="false" afterPath="$PROJECT_DIR$/components/assets/colors.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/comments.svg" beforeDir="false" afterPath="$PROJECT_DIR$/components/assets/comments.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/direction.svg" beforeDir="false" afterPath="$PROJECT_DIR$/components/assets/direction.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/flow.svg" beforeDir="false" afterPath="$PROJECT_DIR$/components/assets/flow.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/plugin.svg" beforeDir="false" afterPath="$PROJECT_DIR$/components/assets/plugin.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/repo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/components/assets/repo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/assets/stackalt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/components/assets/stackalt.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/button/button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/pages/Home.stories.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +66,7 @@
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/Users/efirut/work/openline/openline-ui-kit/stories/pages",
+    "last_opened_file_path": "/Users/efirut/work/openline/openline-ui-kit/components",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,9 +77,42 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/components" />
       <recent name="$PROJECT_DIR$/stories/pages" />
       <recent name="$PROJECT_DIR$/src/stories/grid" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/components" />
+      <recent name="$PROJECT_DIR$/components/button" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.storybook">
+    <configuration name="build-storybook" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build-storybook" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="storybook" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="storybook" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.storybook" />
+        <item itemvalue="npm.build-storybook" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -68,7 +123,7 @@
       <option name="presentableId" value="Default" />
       <updated>1666419613801</updated>
       <workItem from="1666419615024" duration="2506000" />
-      <workItem from="1670224888421" duration="1715000" />
+      <workItem from="1670224888421" duration="2222000" />
     </task>
     <task id="LOCAL-00001" summary="Storybook boilerplate">
       <created>1666419772282</created>
@@ -119,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670226212652</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add storybook">
+      <created>1670226649555</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670226649555</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,7 +193,8 @@
     <MESSAGE value="Storybook boilerplate" />
     <MESSAGE value="clear repo" />
     <MESSAGE value="Barebone nextjs app" />
-    <option name="LAST_COMMIT_MESSAGE" value="Barebone nextjs app" />
+    <MESSAGE value="Add storybook" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add storybook" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
