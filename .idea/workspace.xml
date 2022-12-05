@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="506c25ff-c2a0-4a68-a654-3eaf972a184c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,12 +63,22 @@
       <recent name="$PROJECT_DIR$/components/button" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.storybook">
+  <component name="RunManager" selected="npm.build">
     <configuration name="build-storybook" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
         <script value="build-storybook" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -86,6 +96,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.storybook" />
         <item itemvalue="npm.build-storybook" />
       </list>
@@ -100,7 +111,7 @@
       <option name="presentableId" value="Default" />
       <updated>1666419613801</updated>
       <workItem from="1666419615024" duration="2506000" />
-      <workItem from="1670224888421" duration="3000000" />
+      <workItem from="1670224888421" duration="3310000" />
     </task>
     <task id="LOCAL-00001" summary="Storybook boilerplate">
       <created>1666419772282</created>
@@ -165,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670227133513</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add packages">
+      <created>1670228182855</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670228182855</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,7 +197,8 @@
     <MESSAGE value="Barebone nextjs app" />
     <MESSAGE value="Add storybook" />
     <MESSAGE value="Move components" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move components" />
+    <MESSAGE value="Add packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add packages" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

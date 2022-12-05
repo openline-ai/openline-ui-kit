@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook -s public"
+    "dev": "start-storybook -p 6006 -s ./public",
+    "build": "next build && build-storybook -s public"
   },
   "dependencies": {
     "@types/node": "18.11.10",
