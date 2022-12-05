@@ -18,4 +18,5 @@ jobs:
       - name: Semantic release
         env:
           GITHUB_TOKEN: ${{ secrets.REPOSITORY_READ_WRITE_TOKEN }}
+          NPM_TOKEN: ${{ secrets.REPOSITORY_READ_WRITE_TOKEN }}
         run: npx semantic-release
