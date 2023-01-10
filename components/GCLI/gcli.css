@@ -1,0 +1,156 @@
+.gcli_wrapper {
+    position: relative;
+}
+
+.input_wrapper {
+    display: flex;
+    padding: 8px 12px;
+    background: white;
+    border: 1px solid #AFAFAF;
+    border-radius: 4px;
+}
+
+.input_label_icon {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding: 10px;
+}
+
+.input_icon {
+    display: flex;
+    margin-right: 10px;
+}
+
+.input_label {
+    display: flex;
+    margin-right: 10px;
+}
+
+.selected_terms_wrapper{
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.selected_term {
+    display: flex;
+    background: #e0e0e0;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.selected_term:hover {
+    background: #d1d1d1;
+    cursor: pointer;
+}
+
+.selected_term_text {
+    margin-right: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100px;
+}
+
+.input_actions {
+    display: flex;
+}
+
+.search_button {
+    display: flex;
+    background: #A165BA;
+    border-radius: 5px;
+    align-items: center;
+    align-content: center;
+    border: none;
+    padding: 8px 12px;
+    color:white;
+}
+
+.search_button:hover {
+    cursor: pointer;
+}
+
+.poc_wrapper:focus-within .result-list,
+.poc_wrapper:focus-within .action-list {
+    display: flex;
+}
+
+.input {
+    border: none;
+    width: 100%;
+    padding: 8px 12px;
+    margin: -8px -12px;
+    border-radius: 4px;
+}
+
+.input:focus,
+.input:active,
+.input:hover {
+    outline: none;
+}
+
+.list {
+    background: white;
+    z-index: 10;
+    width: 100%;
+}
+
+.list-search-results__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.result-list {
+    position: absolute;
+    width: calc(100% - 20px);
+    margin: 0 10px;
+    top: 52px;
+    border: 1px solid #AFAFAF;
+    border-top: none;
+}
+
+.action-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list_item {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding: 12px 16px;
+}
+
+.list_item_icon {
+    display: flex;
+    margin-right: 10px;
+    width: 18px;
+}
+
+.list_item_text {
+    display: flex;
+}
+
+.list_item:focus,
+.list_item:active,
+.list_item:hover {
+    background: rgba(213, 213, 213, 0.17);
+    cursor: pointer;
+}
+
+.list_item_action {
+    color: #A165BA;
+    flex-grow: 1;
+    text-align: right;
+}
+
+.content_representation {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: flex-end;
+    height: 300px;
+}
