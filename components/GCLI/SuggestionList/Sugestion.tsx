@@ -1,15 +1,13 @@
-import React, {KeyboardEventHandler, MouseEventHandler, useEffect, useRef, useState} from 'react';
-import { contacts, companies as companiesData, contracts as contractsData, type } from './data';
-import './poc.css';
-// import { ActionItem, ActionList } from './ActionList';
+import React, {KeyboardEventHandler, MouseEventHandler, useEffect, useRef } from 'react';
+import '../poc.css';
 
-type Suggestion = {
+type SuggestionType = {
     name: string,
     actions: string[]
 };
 
 type Props = {
-    item: Suggestion,
+    item: SuggestionType,
     active: boolean,
     onKeyDown: KeyboardEventHandler<HTMLDivElement>,
     onClick: MouseEventHandler<HTMLDivElement>,
@@ -17,7 +15,7 @@ type Props = {
     actionMode: boolean // todo
 };
 
-export const AutocompleteResultItem = ({ item, active, onKeyDown, onClick, defaultAction, actionMode }: Props) => {
+export const Suggestion = ({ item, active, onKeyDown, onClick, defaultAction, actionMode }: Props) => {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {

@@ -1,20 +1,18 @@
-
-
 import React from 'react';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 
-import PocComponent from "./POC";
+import {GCLIInput} from "./GCLIInput";
 import {faUserNinja} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Components/POC',
-    component: PocComponent,
-} as ComponentMeta<typeof PocComponent>;
+    title: 'Components/GCLI Input',
+    component: GCLIInput,
+} as ComponentMeta<typeof GCLIInput>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof PocComponent> = (args) => <PocComponent />;
+const Template: ComponentStory<typeof GCLIInput> = (args) => <GCLIInput />;
 
 const searchAsync = function (where: any, maxResults: string) {
     return new Promise((resolve, reject) => {

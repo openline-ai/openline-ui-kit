@@ -31,6 +31,10 @@
 }
 .input {
     border: none;
+    width: 100%;
+    padding: 8px 12px;
+    margin: -8px -12px;
+    border-radius: 4px;
     /*visibility: hidden;*/
 }
 
