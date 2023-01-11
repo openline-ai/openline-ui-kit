@@ -1,11 +1,11 @@
-//@ts-nocheck
+
 import React, {KeyboardEventHandler, useEffect, useRef, useState} from 'react';
 
 import {contacts} from "./data";
 import {getSuggestions} from "./poc_only_helpers";
 import {SuggestionList} from "./SuggestionList";
-import {GCLIInputMode} from "./types";
 import './poc.css'
+import {useGCLI} from "./context/GCLIContext";
 
 // TODO
 // Filtering:
@@ -13,16 +13,27 @@ import './poc.css'
 // 2. executing filter action on comma is grouping objects, no action executed (allows to execute action on all of those objects)
 // objects should be initially of the same type
 
+// TODO
+//   add result context change mechanism
 
 export const GCLIInput = () => {
     // TODO action simulation to be removed!
-    const [context, setContext] = useState({
-        context: 'main page',
-        type: 'page',
-        filters: []
-    });
 
-    const [mode, setMode] = useState<GCLIInputMode>('default');
+    const {
+        mode,
+        selectedItems,
+        highlightedItemIndex,
+        onChangeMode,
+        onHighlightedItemChange,
+        onSelectNextSuggestion,
+        onSelectPrevSuggestion
+    } = useGCLI()
+
+
+
+    //fixme
+    const [groupType, setGroupType] = useState<null | string>(null);
+
     // todo use input value to create fill in effect on navigate through results by keyboard ??? do we even need that? is this a proper use case
     const [inputValue, setInputValue] = useState('');
     const [query, setQuery] = useState('');
@@ -32,7 +43,6 @@ export const GCLIInput = () => {
     const [messageRecipients, setMessageRecipients] = useState(contacts);
     const [messageMode, setMessageMode] = useState(false);
     const [displayAction, setDisplayActions] = useState(false);
-    const [highlightedIndex, setHighlightedIndex] = useState(-1);
     const [selectedAction, setSelectedAction] = useState(-1);
 
     const inputRef = useRef(null)
@@ -52,14 +62,21 @@ export const GCLIInput = () => {
     }
 
     useEffect(() => {
-        if(!query) {
+        if(!query && !groupType) {
             setSuggestions([])
-        }else {
-            setSuggestions(getSuggestions(query))
+        } else {
+            const newOptions = getSuggestions(query).filter(e=> !selectedOptions.find(name => name === e.name))
+            if(!groupType) {
+                setSuggestions(newOptions)
+            } else {
+                // POC just to see if works
+                setSuggestions(newOptions.filter(e => e.type === groupType))
+                const abc = newOptions.filter(e => e.type === groupType)
+                console.log('ABC', abc, groupType)
+            }
 
         }
-    },[query])
-
+    },[query, groupType])
 
     const sendMessage = (recipient:any, message:string) => {
         // Send the message to the recipient here
@@ -72,11 +89,36 @@ export const GCLIInput = () => {
 
     const handleSearchResultSelect = (name:string, defaultAction:string) => {
         setSelectedOptions([...selectedOptions, name])
-        setContext({...context, context: name, type: defaultAction === 'Open' ? 'Preview' :  'Filtered list'})
+        // setContext({...context, context: name, type: defaultAction === 'Open' ? 'Preview' :  'Filtered list'})
 
     }
-
+    console.log('SUGGESTIONS', suggestions)
     // END HANDLERS FOR GENERAL ACTIONS
+    const handleFocusInputEndOfText = (currentTarget:any) => {
+        if(currentTarget === null) {
+            return
+        }
+        // focus end of the input text
+        setTimeout(() => {
+            inputRef?.current?.focus()
+            return currentTarget.setSelectionRange(currentTarget.value.length, currentTarget.value.length)
+        }, 0)
+    }
+    const handleCreateGroup = (event: KeyboardEvent) => {
+        console.log('HERE group', )
+        event.preventDefault()
+        event.stopPropagation()
+        if (groupType === null || mode !== 'group') {
+            onChangeMode('group')
+            setGroupType(suggestions[0].type)
+        }
+        setSelectedOptions([...selectedOptions, suggestions[highlightedItemIndex ? highlightedItemIndex : 0].name])
+
+        handleFocusInputEndOfText(event.currentTarget)
+        setTimeout(() => {
+            return setQuery('')
+        },0)
+    }
 
     const handleInputChange = (event: any) => {
 
@@ -111,44 +153,42 @@ export const GCLIInput = () => {
         }
     }
 
-    const handleInputKeyDown: KeyboardEventHandler = ({ key, currentTarget, target }) => {
+    const handleInputKeyDown: KeyboardEventHandler = (event:KeyboardEvent) => {
+        const { key, currentTarget, target } = event
         switch (key) {
             case 'Enter':
                 setSelectedOptions([...selectedOptions, suggestions[0].name])
                 handleQueryChange('')
-                setContext({...context, context: suggestions[0].name, type: suggestions[0].type})
+                // setContext({...context, context: suggestions[0].name, type: suggestions[0].type})
                 break;
             case ',':
-                setMode('filter')
-                const newFilter = [...context?.filters, suggestions[0].name]
-                setContext({...context, context: suggestions[0].name, type: 'filter', filters: newFilter})
-                setSelectedOptions([...selectedOptions, suggestions[0].name])
-                setTimeout(() => {
-                    return handleQueryChange('')
-                },0)
+                handleCreateGroup(event)
                 break;
             case 'Backspace':
-                if(!!selectedOptions.length && target.value.length === 0) {
+                if(!!selectedOptions.length && target?.value?.length === 0) {
                     const newSelected = selectedOptions.slice(0, -1)
                     setSelectedOptions(newSelected)
                 }
                 break;
             case 'ArrowDown':
-                const nextIndex = highlightedIndex === null ? 0 : highlightedIndex + 1;
-                setHighlightedIndex(nextIndex % suggestions.length);
+                onSelectNextSuggestion({suggestions, currentIndex: highlightedItemIndex, onIndexSelect: onHighlightedItemChange})
                 break;
             case 'ArrowUp':
                 // code for ArrowUp action
+
                 break;
             case 'ArrowRight':
                 // code for ArrowRight action
+                if (mode === 'group') {
+                    setSuggestions([])
+                }
                 break;
         }
     }
 
 
-    const handleSearchResultsKeyDown = ({key, currentTarget}, option:string) => {
-        console.group('handleSearchResultsKeyDown')
+    const handleSearchResultsKeyDown = (event: KeyboardEvent, option:string) => {
+        const {key, currentTarget} = event
         switch(key) {
             case 'Enter':
                 // execute action
@@ -157,21 +197,11 @@ export const GCLIInput = () => {
                 setSelectedOptions([...selectedOptions, option])
                 break;
             case 'ArrowDown':
-                // has next item
-                if(suggestions.length -1 >= highlightedIndex) {
-                    // select next
-                    setHighlightedIndex(highlightedIndex + 1)
-                    setInputValue(suggestions[highlightedIndex + 1]?.name)
-                } else {
-                    // go to top of the list ???
-                    setHighlightedIndex(0)
-                    setInputValue(suggestions[0].name)
-                }
+                onSelectNextSuggestion({suggestions, currentIndex: highlightedItemIndex, onIndexSelect: onHighlightedItemChange})
                 break;
             case 'ArrowUp':
-                // focus input when prev element does not exist & close actions list if opened
-                if(highlightedIndex === 0) {
-                    setHighlightedIndex(-1)
+                onSelectPrevSuggestion({currentIndex: highlightedItemIndex, onIndexSelect: onHighlightedItemChange})
+                if(highlightedItemIndex === 0) {
                     // focus end of the input text
                     setTimeout(() => {
                         inputRef?.current?.focus()
@@ -180,11 +210,6 @@ export const GCLIInput = () => {
                     if(displayAction) {
                         setDisplayActions(false)
                     }
-                }
-                // select prev
-                if(highlightedIndex !== 0) {
-                    setHighlightedIndex(highlightedIndex - 1)
-                    setInputValue(suggestions[highlightedIndex - 1].name)
                 }
                 break;
             case 'ArrowRight':
@@ -197,6 +222,9 @@ export const GCLIInput = () => {
                 console.log('Arrow right action')
                 setDisplayActions(false)
                 break;
+            case ',':
+                handleCreateGroup(event)
+                break
         }
         console.groupEnd()
     }
@@ -240,7 +268,7 @@ export const GCLIInput = () => {
                     <span
                         key={option}
                         onClick={() => handleDeselect(option)}
-                        className='input_pill'
+                        className={`input_pill input_pill--${mode}`}
                     >
                 {option}
                  </span>
@@ -265,16 +293,16 @@ export const GCLIInput = () => {
             {/* END SELECTED OPTIONS */}
 
 
-            {dropdownOpen && (
+            {dropdownOpen && query !== '' && (
                 <SuggestionList
                     onSearchResultSelect={handleSearchResultSelect}
                     onSearchResultsKeyDown={handleSearchResultsKeyDown}
                     onActionKeyDown={handleActionKeyDown}
                     suggestions={suggestions}
-                    highlightedIndex={highlightedIndex}
                     selectedAction={selectedAction}
                     mode={mode}
                     displayAction={displayAction}
+                    highlightedIndex={highlightedItemIndex}
                 />
             )}
 
@@ -291,8 +319,8 @@ export const GCLIInput = () => {
 
             {/* TO BE COMPLETELY REMOVED AND SWAPPED WITH REAL LIFE NAV AND EXECUTIONS */}
             <div className='content_representation'>
-                <h1>{context.context}</h1>
-                <h2>{context.type}</h2>
+                {/*<h1>{context.context}</h1>*/}
+                {/*<h2>{context.type}</h2>*/}
             </div>
             {/* END TO BE COMPLETELY REMOVED AND SWAPPED WITH REAL LIFE NAV AND EXECUTIONS */}
 

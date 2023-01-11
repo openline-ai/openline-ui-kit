@@ -1,7 +1,7 @@
 import React from 'react';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 
-import {GCLIInput} from "./GCLIInput";
+import {GCLI as GCLIInput} from "./GCLI";
 import {faUserNinja} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 

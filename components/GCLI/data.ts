@@ -60,23 +60,42 @@ const contract_actions = [
 
 const type = [
     {
-        id: 1,
+        id: 'actions_for_entity_type_1',
         name: 'contact',
         actions: ['Open', 'Delete', 'Call'], //todo
         defaultAction: 'Open'
     },
     {
-        id: 2,
-        name: 'company',
+        id: 'actions_for_entity_type_2',
+        name: 'organisation',
         actions: ['Filter','Write message', 'Activate Contract'],
         defaultAction: 'Filter'
     },
     {
-        id: 3,
+        id: 'actions_for_entity_type_3',
         name: 'contract',
         actions: contract_actions,
         defaultAction: 'Open'
-    }
+    },
+    {
+        id: 'actions_for_entity_type_4',
+        name: 'contract_group',
+        actions: [''],
+        defaultAction: 'Open'
+    },
+    {
+        id: 'actions_for_entity_type_5',
+        name: 'contact_group',
+        actions: ['Message', 'Email', 'Add note'],
+        defaultAction: 'Add note',
+    },
+    {
+        id: 'actions_for_entity_type_5',
+        name: 'organisation_group',
+        actions: [],
+        defaultAction: '',
+    },
+
 ]
 
 // todo implement support for free text action
@@ -129,17 +148,17 @@ const companies = [
     {
         id: 'c1',
         name: 'Acme',
-        type: 'company'
+        type: 'organisation'
     },
     {
         id: 'c2',
         name: 'Nestle',
-        type: 'company'
+        type: 'organisation'
     },
     {
         id: 'c3',
         name: 'Abc inc',
-        type: 'company'
+        type: 'organisation'
     }
 ]
 
@@ -185,7 +204,7 @@ const groupedData = [
         ]
     },
     {
-        label: 'Companies', code: 'company',
+        label: 'Companies', code: 'organisation',
         items: [
             ...companies.map(c=> ({
                 ...c,

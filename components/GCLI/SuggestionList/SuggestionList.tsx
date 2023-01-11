@@ -10,7 +10,7 @@ interface SuggestionListProps {
     onSearchResultsKeyDown: any;
     onActionKeyDown:any;
     suggestions: Array<SuggestionType>
-    highlightedIndex: number;
+    highlightedIndex: number | null;
     selectedAction: number
     mode: GCLIInputMode
     displayAction: boolean

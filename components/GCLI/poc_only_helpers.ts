@@ -6,8 +6,8 @@ export const getSuggestions = (input:string) => {
         user.name.toLowerCase().includes(inputLowerCase)
     );
 
-    const companySuggestions = companies.filter(company =>
-        company.name.toLowerCase().includes(inputLowerCase)
+    const companySuggestions = companies.filter(organisation =>
+        organisation.name.toLowerCase().includes(inputLowerCase)
     );
 
     const contractsSuggestions = contracts.filter(contract =>
