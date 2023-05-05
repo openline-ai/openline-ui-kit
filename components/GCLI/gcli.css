@@ -1,5 +1,6 @@
 .gcli_wrapper {
     position: relative;
+    display: flex;
 }
 
 .input_wrapper {
@@ -35,6 +36,8 @@
 
 .selected_term {
     display: flex;
+    vertical-align: middle;
+    align-items: center;
     background: #e0e0e0;
     padding: 10px;
     margin-right: 10px;
@@ -55,6 +58,8 @@
 
 .input_actions {
     display: flex;
+    align-items: center;
+    align-content: center;
 }
 
 .search_button {
@@ -107,7 +112,7 @@
     position: absolute;
     width: calc(100% - 20px);
     margin: 0 10px;
-    top: 52px;
+    top: 62px;
     border: 1px solid #AFAFAF;
     border-top: none;
 }
@@ -147,10 +152,8 @@
     text-align: right;
 }
 
-.content_representation {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: flex-end;
-    height: 300px;
+.loading{
+    color: #A165BA;
+    font-weight: bold;
+    font-size: 0.8rem;
 }

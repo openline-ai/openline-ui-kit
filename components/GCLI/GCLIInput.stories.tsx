@@ -22,53 +22,17 @@ export const Example: Story = {
             console.log('selected')
             console.log(items);
         },
-        queryData: (searchTerm: string) => {
-            console.log('in args')
-            return [
-                {
-                    "score": 2.222111225128174,
-                    "result": {
-                        "id": "1",
-                        "type": "CONTACT",
-                        "display": "John Doe",
-                        "data": null
-                    }
-                },
-                {
-                    "score": 1.5847069025039673,
-                    "result": {
-                        "id": "1",
-                        "type": "STATE",
-                        "display": "Alabama",
-                        "data": [
-                            {
-                                "key": "code",
-                                "value": "AL",
-                                "display": null
-                            }
-                        ]
-                    }
-                },
-                {
-                    "score": 1.5732121467590332,
-                    "result": {
-                        "id": "1",
-                        "type": "EMAIL",
-                        "display": "tt@gg.ww",
-                        "data": null
-                    }
-                },
-                {
-                    "score": 1.5732121467590332,
-                    "result": {
-                        "id": "1",
-                        "type": "ORGANIZATION",
-                        "display": "aa@bb.cc",
-                        "data": null
-                    }
-                }
-            ]
-        }
+        loadSuggestions: (searchTerm: string) => {
+        },
+        loadingSuggestions: true,
+        suggestionsLoaded: [
+            {
+                "id": "1",
+                "type": "CONTACT",
+                "display": "John Doe",
+                "data": null
+            }
+        ],
     },
 };
 

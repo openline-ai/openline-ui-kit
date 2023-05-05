@@ -2,6 +2,7 @@ import React, {KeyboardEventHandler, useEffect, useRef, useState} from 'react';
 
 import {SuggestionList} from "./SuggestionList";
 import './gcli.css'
+import "../../styles/normalization.css";
 import {useGCLI} from "./context/GCLIContext";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAt, faBuildingColumns, faFilter, faMap, faRemove, faSearch, faUser} from "@fortawesome/free-solid-svg-icons";
@@ -21,7 +22,9 @@ export const GCLIInput = () => {
     const {
         label,
         icon,
-        queryData,
+        loadSuggestions,
+        loadingSuggestions,
+        suggestionsLoaded,
         onItemsChange,
         highlightedItemIndex,
         onHighlightedItemChange,
@@ -31,7 +34,6 @@ export const GCLIInput = () => {
 
     // todo use input value to create fill in effect on navigate through results by keyboard ??? do we even need that? is this a proper use case
     const [selectedValues, setSelectedValues] = useState([] as any[]);
-    const [loading, setLoading] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
 
     const [suggestions, setSuggestions] = useState<Array<any>>([]);
@@ -45,13 +47,16 @@ export const GCLIInput = () => {
     const dropdownRef = React.useRef(null);
 
     useEffect(() => {
+        if (!loadingSuggestions && suggestionsLoaded) {
+            setSuggestions(suggestionsLoaded);
+        }
+    }, [loadingSuggestions, suggestionsLoaded]);
+
+    useEffect(() => {
         if (!searchQuery) {
             setSuggestions([])
         } else {
-            setLoading(true);
-            let array = queryData(searchQuery);
-            setSuggestions(array.map((e: any) => e.result))
-            setLoading(false);
+            loadSuggestions(searchQuery);
         }
     }, [searchQuery])
 
@@ -234,8 +239,8 @@ export const GCLIInput = () => {
 
                 <div className='input_actions'>
 
-                    {loading && <div className='loading'>Loading...</div>}
-                    {!loading && searchQuery !== '' &&
+                    {loadingSuggestions && <div className='loading'>Loading...</div>}
+                    {!loadingSuggestions && searchQuery !== '' &&
                         <button className='search_button' onClick={handleAsSimpleSearch}>
                             <FontAwesomeIcon icon={faSearch} style={{marginRight: '10px'}}/> Search
                         </button>
@@ -261,14 +266,6 @@ export const GCLIInput = () => {
                     highlightedIndex={highlightedItemIndex}
                 />
             )}
-
-
-            {/* TO BE COMPLETELY REMOVED AND SWAPPED WITH REAL LIFE NAV AND EXECUTIONS */}
-            <div className='content_representation'>
-                {/*<h1>{context.context}</h1>*/}
-                {/*<h2>{context.type}</h2>*/}
-            </div>
-            {/* END TO BE COMPLETELY REMOVED AND SWAPPED WITH REAL LIFE NAV AND EXECUTIONS */}
 
         </div>
     );
