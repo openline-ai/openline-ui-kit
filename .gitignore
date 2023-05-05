@@ -3,6 +3,9 @@
 .idea
 storybook-static
 
+.rollup.cache
+dist
+
 # dependencies
 /node_modules
 /.pnp
