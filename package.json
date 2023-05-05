@@ -16,7 +16,6 @@
     "package.json",
     "README.md"
   ],
-
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
