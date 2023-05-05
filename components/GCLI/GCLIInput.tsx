@@ -74,7 +74,7 @@ export const GCLIInput = () => {
     }
     // END HANDLERS FOR GENERAL ACTIONS
 
-    const handleInputKeyDown: KeyboardEventHandler = (event: KeyboardEvent) => {
+    const handleInputKeyDown = (event: KeyboardEvent) => {
         const {key, currentTarget, target} = event
         switch (key) {
             case 'Enter':
@@ -227,7 +227,7 @@ export const GCLIInput = () => {
                         setDropdownOpen(true);
                         inputRef.current?.focus();
                     }}
-                    onKeyDown={handleInputKeyDown}
+                    onKeyDown={(event: any) => handleInputKeyDown(event)}
                     list="my-list"
                     ref={inputRef}
                 />

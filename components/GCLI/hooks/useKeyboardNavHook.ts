@@ -1,6 +1,6 @@
 import {useState, useEffect, KeyboardEventHandler} from 'react';
 
-function useKeyboardNavigation(navItems, initialIndex = 0) {
+function useKeyboardNavigation(navItems: any, initialIndex = 0) {
     const [activeIndex, setActiveIndex] = useState(initialIndex);
 
     useEffect(() => {
