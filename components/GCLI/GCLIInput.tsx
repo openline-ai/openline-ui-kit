@@ -1,4 +1,4 @@
-import React, {KeyboardEventHandler, useEffect, useRef, useState} from 'react';
+import React, {KeyboardEventHandler, useEffect, useMemo, useRef, useState} from 'react';
 
 import {SuggestionList} from "./SuggestionList";
 import './gcli.css'
@@ -6,6 +6,7 @@ import "../../styles/normalization.css";
 import {useGCLI} from "./context/GCLIContext";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAt, faBuildingColumns, faFilter, faMap, faRemove, faSearch, faUser} from "@fortawesome/free-solid-svg-icons";
+import {debounce} from 'lodash';
 
 // TODO
 // Filtering:
@@ -51,14 +52,6 @@ export const GCLIInput = () => {
             setSuggestions(suggestionsLoaded);
         }
     }, [loadingSuggestions, suggestionsLoaded]);
-
-    useEffect(() => {
-        if (!searchQuery) {
-            setSuggestions([])
-        } else {
-            loadSuggestions(searchQuery);
-        }
-    }, [searchQuery])
 
     // HANDLERS FOR GENERAL ACTIONS
     const handleSearchResultSelect = (item: any, defaultAction: string) => {
@@ -172,6 +165,22 @@ export const GCLIInput = () => {
         }
     }
 
+    const handleInputChange = (event: any) => {
+        console.log(event.target.value)
+        setSearchQuery(event.target.value);
+        inputRef.current?.focus();
+        setDropdownOpen(true);
+
+        debounce(async (event) => {
+
+            if (!searchQuery) {
+                setSuggestions([])
+            } else {
+                loadSuggestions(searchQuery);
+            }
+        }, 500)
+    }
+
     return (
         <div className='gcli_wrapper'>
             <div className='input_wrapper'>
@@ -227,13 +236,8 @@ export const GCLIInput = () => {
                     className='input'
                     type="text"
                     value={searchQuery}
-                    onChange={(event) => {
-                        setSearchQuery(event.target.value);
-                        setDropdownOpen(true);
-                        inputRef.current?.focus();
-                    }}
+                    onChange={handleInputChange}
                     onKeyDown={(event: any) => handleInputKeyDown(event)}
-                    list="my-list"
                     ref={inputRef}
                 />
 
@@ -260,6 +264,7 @@ export const GCLIInput = () => {
                     onSearchResultSelect={handleSearchResultSelect}
                     onSearchResultsKeyDown={handleSearchResultsKeyDown}
                     onActionKeyDown={handleActionKeyDown}
+                    loadingSuggestions={loadingSuggestions}
                     suggestions={suggestions}
                     selectedAction={selectedAction}
                     displayAction={displayAction}

@@ -24,7 +24,7 @@ export const Example: Story = {
         },
         loadSuggestions: (searchTerm: string) => {
         },
-        loadingSuggestions: true,
+        loadingSuggestions: false,
         suggestionsLoaded: [
             {
                 "id": "1",
