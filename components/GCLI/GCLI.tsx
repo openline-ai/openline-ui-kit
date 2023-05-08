@@ -6,13 +6,15 @@ import './gcli.css'
 interface GCLIProps {
     label: string,
     icon?: ReactNode,
-    queryData: (searchTerm: string) => Array<any>
+    loadSuggestions: (searchTerm: string) => void,
+    loadingSuggestions: boolean,
+    suggestionsLoaded: any[],
     onItemsChange: (items: any[]) => void
 }
 
-export const GCLI = ({label, icon, queryData, onItemsChange}: GCLIProps) => {
+export const GCLI = ({label, icon, suggestionsLoaded, loadingSuggestions, loadSuggestions, onItemsChange}: GCLIProps) => {
     return (
-        <GCLIContextProvider label={label} icon={icon} queryData={queryData} onItemsChange={onItemsChange}>
+        <GCLIContextProvider label={label} icon={icon} suggestionsLoaded={suggestionsLoaded} loadingSuggestions={loadingSuggestions} loadSuggestions={loadSuggestions} onItemsChange={onItemsChange}>
             <GCLIInput/>
         </GCLIContextProvider>
     );

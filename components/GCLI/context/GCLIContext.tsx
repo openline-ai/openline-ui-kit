@@ -6,14 +6,18 @@ interface GCLIContextProviderProps {
     label: string
     icon?: ReactNode
     children: ReactNode
-    queryData: (searchTerm: string) => Array<any>
+    loadSuggestions: (searchTerm: string) => void,
+    loadingSuggestions: boolean,
+    suggestionsLoaded: any[],
     onItemsChange: (items: any[]) => void
 }
 
 interface GCLIContextInterface {
     label: string
     icon?: ReactNode
-    queryData: (searchTerm: string) => Array<any>
+    loadSuggestions: (searchTerm: string) => void,
+    loadingSuggestions: boolean,
+    suggestionsLoaded: any[],
     onItemsChange: (items: any[]) => void
     selectedItems: Array<any>
     highlightedItemIndex: null | number
@@ -30,7 +34,9 @@ interface GCLIContextInterface {
 const GCLIContext = createContext<GCLIContextInterface>({
     label: '',
     icon: undefined,
-    queryData: (searchTerm: string) => [],
+    loadSuggestions: (searchTerm: string) => {},
+    loadingSuggestions: false,
+    suggestionsLoaded: [],
     onItemsChange: (items: any[]) => {
 
     },
@@ -47,7 +53,7 @@ const GCLIContext = createContext<GCLIContextInterface>({
 });
 
 
-const GCLIContextProvider = ({label, icon, children, queryData, onItemsChange}: GCLIContextProviderProps): JSX.Element => {
+const GCLIContextProvider = ({label, icon, children, loadSuggestions, loadingSuggestions, suggestionsLoaded, onItemsChange}: GCLIContextProviderProps): JSX.Element => {
     const [mode, setMode] = useState<GCLIInputMode>('default');
     const [selectedItems, setSelectedItems] = useState([]);
     const [highlightedItemIndex, setHighlightedItemIndex] = useState<null | number>(null);
@@ -91,7 +97,9 @@ const GCLIContextProvider = ({label, icon, children, queryData, onItemsChange}: 
         <GCLIContext.Provider value={{
             label,
             icon,
-            queryData,
+            loadSuggestions,
+            loadingSuggestions,
+            suggestionsLoaded,
             onItemsChange,
             selectedItems,
             highlightedItemIndex,
@@ -109,7 +117,9 @@ const useGCLI = () => {
     const {
         label,
         icon,
-        queryData,
+        loadSuggestions,
+        loadingSuggestions,
+        suggestionsLoaded,
         onItemsChange,
         selectedItems,
         highlightedItemIndex,
@@ -119,7 +129,9 @@ const useGCLI = () => {
     return {
         label,
         icon,
-        queryData,
+        loadSuggestions,
+        loadingSuggestions,
+        suggestionsLoaded,
         onItemsChange,
         selectedItems,
         highlightedItemIndex,
